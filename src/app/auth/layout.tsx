@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 
 export default function Layout({
   children,
@@ -5,6 +6,6 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>{children}</div>
+    <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",height:"100svh"}}>{children}</Box>
   );
 }

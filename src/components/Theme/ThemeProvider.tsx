@@ -7,10 +7,11 @@ import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from '@emotion/react';
 import theme from './theme';
+import { CssBaseline } from '@mui/material';
 
 export default function ThemeProvider({children}:PropsWithChildren) {
    
-        
+      
 
     const cacheRtl = createCache({
       key: "muirtl",
@@ -20,6 +21,7 @@ export default function ThemeProvider({children}:PropsWithChildren) {
   return (
     <CacheProvider value={cacheRtl}>
         <MuiProvider theme={theme}>
+          <CssBaseline />
             {children}
         </MuiProvider>
     </CacheProvider>
