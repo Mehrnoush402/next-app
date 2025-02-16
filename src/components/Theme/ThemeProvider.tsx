@@ -10,10 +10,7 @@ import theme from './theme';
 import { CssBaseline } from '@mui/material';
 
 export default function ThemeProvider({children}:PropsWithChildren) {
-   
-      
-
-    const cacheRtl = createCache({
+   const cacheRtl = createCache({
       key: "muirtl",
       stylisPlugins: [prefixer, rtlPlugin],
     });
