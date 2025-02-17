@@ -1,3 +1,4 @@
+import { register } from "@/actions/register";
 import {
   Card,
   CardContent,
@@ -8,13 +9,14 @@ import {
   Button,
 } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, { useActionState } from "react";
 
 export default function RegisterPage() {
+  const [state, action, pending] = useActionState(register, undefined);
   return (
     <Card sx={{ width: 500 }} elevation={8}>
       <CardContent sx={{ padding: 4 }}>
-        <form action="">
+        <form action={action}>
           <Stack
             direction="row"
             alignItems="center"
