@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="rtl">
+    <html lang="en" dir="rtl" suppressHydrationWarning>
       <ThemeProvider>
         <body className={`${vazir.variable}`}>{children}</body>
       </ThemeProvider>

@@ -9,9 +9,9 @@ import {
  
 } from "@mui/material";
 
-import React, { useActionState, JSX } from "react";
+import React, { useActionState } from "react";
 
-export default function RegisterForm(): JSX.Element {
+export default function RegisterForm() {
   const [state, action, pending] = useActionState(register, undefined);
   return (
     <form action={action}>
