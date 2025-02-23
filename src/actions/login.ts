@@ -1,17 +1,17 @@
 "use server";
 import "server-only";
 
-import { RegisterFormState, SignupFormSchema } from "@/lib/validation";
+import { LoginFormSchema, LoginFormState } from "@/lib/validation";
 import { createSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 
 
 // const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const BASE_URL = process.env.BASE_URL;
-export async function register(state: RegisterFormState, formData: FormData) {
+export async function login(state: LoginFormState, formData: FormData) {
   // Validate form fields
-
-  const validatedFields = SignupFormSchema.safeParse(
+debugger
+  const validatedFields = LoginFormSchema.safeParse(
     Object.fromEntries(formData.entries())
   );
 
@@ -23,7 +23,7 @@ export async function register(state: RegisterFormState, formData: FormData) {
   }
 
  
-    const res = await fetch(`${BASE_URL}/auth/register`, {
+    const res = await fetch(`${BASE_URL}/auth/login`, {
       method: "post",
       body: JSON.stringify(validatedFields?.data),
       headers: {
