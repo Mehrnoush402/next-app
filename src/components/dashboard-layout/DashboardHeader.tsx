@@ -18,8 +18,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import SearchIconWrapper from "./components/SearchIconWrapper";
 import Search from "./components/Search";
 import StyledInputBase from "./components/StyledInputBase";
-import { styled } from "@mui/material";
 import AppBar from "./components/HeaderAppBar";
+import { DrawerContext } from "./DrawerProvider";
 
 
 export default function DashboardHeader() {
@@ -29,6 +29,8 @@ export default function DashboardHeader() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const { isOpen,handleOpen } = React.useContext(DrawerContext);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -123,7 +125,7 @@ export default function DashboardHeader() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={isOpen}>
         <Toolbar>
           <IconButton
             size="large"
@@ -131,6 +133,7 @@ export default function DashboardHeader() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={handleOpen}
           >
             <MenuIcon />
           </IconButton>
