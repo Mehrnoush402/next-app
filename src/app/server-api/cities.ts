@@ -3,7 +3,7 @@ import { ICity, PaginatedResultApi } from "./types";
 import { cookies } from "next/headers";
 
 export const getCities = async (): Promise<PaginatedResultApi<ICity>> => {
-  const token = await (await cookies()).get("accessToken")?.value
+  const token = (await cookies()).get("accessToken")?.value
   const res = await fetch(`${BASE_URL}/cities`, {
     headers:{
       authorization: `Bearer ${token}`
